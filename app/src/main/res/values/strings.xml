@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">LibrairieDeHenriPotier</string>
+    <string name="app_name">Librairie De Henri Potier</string>
+    <string name="text_bottom_navbar_book">Books</string>
+    <string name="text_bottom_navbar_shopping_cart">Cart</string>
 </resources>
