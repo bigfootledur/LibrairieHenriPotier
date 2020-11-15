@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.groupe3.librairiedehenripotier.api.HenriPotierAPI
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
+import com.groupe3.librairiedehenripotier.utils.OfferCalculator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
 
             val offers = HenriPotierData.commercialOffers(listBooks.map { book -> book.isbn })
 
-            print(offers)
+            val bestOfferWithPrice = OfferCalculator.getBestOfferWithPrice(listBooks, offers)
+
+            print(bestOfferWithPrice)
         }
     }
 }
