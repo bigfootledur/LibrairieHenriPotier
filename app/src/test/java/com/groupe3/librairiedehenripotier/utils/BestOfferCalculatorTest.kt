@@ -40,18 +40,18 @@ class BestOfferCalculatorTest {
                 basicTestBooks,
                 allAny()
             )
-        } returns basisTestBooksBasePrice - 5
+        } returns basicTestBooksBasePrice - 5
         every {
             OfferCalculator.getPriceWithOffer(
                 basicTestBooks,
                 percentageOffer
             )
-        } returns basisTestBooksBasePrice - 10
+        } returns basicTestBooksBasePrice - 10
 
         val result = OfferCalculator.getBestOfferWithPrice(basicTestBooks, offersList)
 
         Assert.assertEquals(percentageOffer, result.first)
-        Assert.assertEquals(basisTestBooksBasePrice - 10, result.second)
+        Assert.assertEquals(basicTestBooksBasePrice - 10, result.second)
     }
 
     @Test
@@ -62,12 +62,12 @@ class BestOfferCalculatorTest {
                 basicTestBooks,
                 allAny()
             )
-        } returns basisTestBooksBasePrice + 5
+        } returns basicTestBooksBasePrice + 5
 
         val result = OfferCalculator.getBestOfferWithPrice(basicTestBooks, offersList)
 
         Assert.assertEquals(null, result.first)
-        Assert.assertEquals(basisTestBooksBasePrice, result.second)
+        Assert.assertEquals(basicTestBooksBasePrice, result.second)
     }
 
     @Test
@@ -78,12 +78,12 @@ class BestOfferCalculatorTest {
                 basicTestBooks,
                 allAny()
             )
-        } returns basisTestBooksBasePrice
+        } returns basicTestBooksBasePrice
 
         val result = OfferCalculator.getBestOfferWithPrice(basicTestBooks, offersList)
 
         Assert.assertEquals(null, result.first)
-        Assert.assertEquals(basisTestBooksBasePrice, result.second)
+        Assert.assertEquals(basicTestBooksBasePrice, result.second)
     }
 
     @Test
@@ -94,7 +94,7 @@ class BestOfferCalculatorTest {
         verify(exactly = 0) { OfferCalculator.getPriceWithOffer(allAny(), allAny()) }
 
         Assert.assertEquals(null, result.first)
-        Assert.assertEquals(basisTestBooksBasePrice, result.second)
+        Assert.assertEquals(basicTestBooksBasePrice, result.second)
     }
 
     @Test
@@ -112,7 +112,7 @@ class BestOfferCalculatorTest {
             testBookWithPrice(10f)
         )
 
-        private val basisTestBooksBasePrice = basicTestBooks.map { book -> book.price }.sum()
+        private val basicTestBooksBasePrice = basicTestBooks.map { book -> book.price }.sum()
 
         private val emptyTestBooks = listOf<Book>()
 
