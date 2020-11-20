@@ -21,12 +21,12 @@ class BookListView() : AppCompatActivity(), View {
         this.recycler = findViewById(R.id.recycler_view_books)
     }
 
-    override fun setDataRecyclerView(items: ArrayList<Book>) {
+    override fun setDataRecyclerView(items: List<Book>) {
         // init adapter ... ?
         // this.recycler.adapter =
         //items.adapter =
 
-        println(items);
+        //println(items);
     }
 
 }

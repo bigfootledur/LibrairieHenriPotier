@@ -1,7 +1,6 @@
 package com.groupe3.librairiedehenripotier
 
 import android.os.Bundle
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,26 +20,30 @@ class MainActivity : AppCompatActivity(), View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        this.listBooks = ArrayList()
-        this.listBooks.add(Book("title 1", "", 1.5.toFloat(), "img"))
         this.recycler = findViewById(R.id.recycler_view_books)
-        this.presenter = BookListPresenter(this, HenriPotierData)
+
+        this.listBooks = ArrayList()
+        this.listBooks.add(Book("t","t",1.toFloat(),""))
+        this.listBooks.add(Book("t","t2",1.toFloat(),""))
+
         this.recyclerAdapter = BookListAdapter(listBooks);
+
+        recyclerAdapter.notifyDataSetChanged()
+
         recycler.adapter = recyclerAdapter;
 
-        // Lookup the recyclerview in activity layout
-        this.recycler = findViewById(R.id.recycler_view_books)
-
-        // Create adapter passing in the sample user data
-        val adapter = BookListAdapter(listBooks)
-        // Attach the adapter to the recyclerview to populate items
-        this.recycler.adapter = adapter
-        // Set layout manager to position the items
         this.recycler.layoutManager = LinearLayoutManager(this)
+
+        this.presenter = BookListPresenter(this, HenriPotierData)
+        this.presenter.onResume()
+
     }
 
-     override fun setDataRecyclerView(books: ArrayList<Book>) {
-        listBooks = books;
-        println(books);
+     override fun setDataRecyclerView(books: List<Book>) {
+         /*
+         listBooks.addAll(books)
+         recyclerAdapter.notifyDataSetChanged()
+
+          */
     }
 }

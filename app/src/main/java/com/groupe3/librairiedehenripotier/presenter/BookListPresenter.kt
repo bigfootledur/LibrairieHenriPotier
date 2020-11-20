@@ -17,7 +17,7 @@ class BookListPresenter (private var view: View, private val api: HenriPotierDat
          GlobalScope.launch(Dispatchers.Main) {
 
              val listBooks = api.listBooks()
-             view.setDataRecyclerView(listBooks as ArrayList<Book>)
+             view.setDataRecyclerView(listBooks)
          }
     }
 
