@@ -3,5 +3,5 @@ package com.groupe3.librairiedehenripotier.view
 import com.groupe3.librairiedehenripotier.model.Book
 
 interface View {
-    fun setDataRecyclerView(items: List<Book>):Unit
+    fun setDataView(items: List<Book>):Unit
 }

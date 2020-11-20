@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), View {
 
     }
 
-     override fun setDataRecyclerView(books: List<Book>) {
+     override fun setDataView(books: List<Book>) {
 
          listBooks.addAll(books)
          recyclerAdapter.notifyDataSetChanged()
@@ -53,11 +53,12 @@ class MainActivity : AppCompatActivity(), View {
             return
         }
         println("HELLO")
-        /*
+
         val detailIntent = Intent(this, BookDetailsActivity::class.java)
-        detailIntent.putExtra(KEY_MOVIE_ID, position)
+        detailIntent.putExtra(KEY_MOVIE_ID.toString(), position)
+        println("===="+ KEY_MOVIE_ID)
         startActivity(detailIntent)
 
-         */
+
     }
 }
