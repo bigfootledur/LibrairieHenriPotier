@@ -42,7 +42,6 @@ class BookListAdapter(private val bookActivity: MainActivity, private var books:
         // loading album cover using Glide library
         Glide.with(bookActivity)
             .load(cover)
-           // .apply( RequestOptions().override(, 100))
             .into(holder.imgView)
 
 

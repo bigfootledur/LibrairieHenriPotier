@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.library_activity)
 
         this.recycler = findViewById(R.id.recycler_view_books)
 
@@ -52,8 +52,12 @@ class MainActivity : AppCompatActivity(), View {
         if (position == -1) {
             return
         }
+        println("HELLO")
+        /*
         val detailIntent = Intent(this, BookDetailsActivity::class.java)
         detailIntent.putExtra(KEY_MOVIE_ID, position)
         startActivity(detailIntent)
+
+         */
     }
 }

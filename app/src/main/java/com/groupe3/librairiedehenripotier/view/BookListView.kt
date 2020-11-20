@@ -17,7 +17,7 @@ class BookListView() : AppCompatActivity(), View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.library_activity)
         this.recycler = findViewById(R.id.recycler_view_books)
     }
 

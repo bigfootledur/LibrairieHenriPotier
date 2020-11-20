@@ -9,4 +9,8 @@
     <dimen name="adapter_item_width_image">150dp</dimen>
     <dimen name="title_item">30dp</dimen>
     <dimen name="price_item">20dp</dimen>
+    <dimen name="book_detail_max_width_image">200dp</dimen>
+    <dimen name="book_detail_width_image">200dp</dimen>
+    <dimen name="book_detail_title_size">40dp</dimen>
+    <dimen name="book_detail_synopsis_size">25dp</dimen>
 </resources>
