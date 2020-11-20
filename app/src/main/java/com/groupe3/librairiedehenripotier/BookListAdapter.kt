@@ -1,6 +1,5 @@
 package com.groupe3.librairiedehenripotier
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.groupe3.librairiedehenripotier.model.Book
 
-class BookListAdapter(private var books: List<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>() {
+class BookListAdapter(private val bookActivity: MainActivity, private var books: List<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>() {
 
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleView: TextView = view.findViewById(R.id.book_title_item)
@@ -34,6 +33,8 @@ class BookListAdapter(private var books: List<Book>) : RecyclerView.Adapter<Book
 
         holder.titleView.text = title
         holder.priceView.text = price.toString() + "€"
+
+        holder.itemView.setOnClickListener { bookActivity.onMovieItemClick(position) }
     }
 
     override fun getItemCount(): Int {
