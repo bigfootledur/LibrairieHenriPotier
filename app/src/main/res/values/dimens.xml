@@ -12,5 +12,6 @@
     <dimen name="book_detail_max_width_image">200dp</dimen>
     <dimen name="book_detail_width_image">200dp</dimen>
     <dimen name="book_detail_title_size">40dp</dimen>
-    <dimen name="book_detail_synopsis_size">25dp</dimen>
+    <dimen name="book_detail_synopsis_size">20dp</dimen>
+    <dimen name="book_detail_height_image">300dp</dimen>
 </resources>
