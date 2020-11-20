@@ -5,4 +5,8 @@
     <dimen name="adapter_item_margin">3dp</dimen>
     <dimen name="adapter_item_margin_relative_element">3dp</dimen>
     <dimen name="fab_margin">3dp</dimen>
+    <dimen name="adapter_item_max_width_image">150dp</dimen>
+    <dimen name="adapter_item_width_image">150dp</dimen>
+    <dimen name="title_item">30dp</dimen>
+    <dimen name="price_item">20dp</dimen>
 </resources>
