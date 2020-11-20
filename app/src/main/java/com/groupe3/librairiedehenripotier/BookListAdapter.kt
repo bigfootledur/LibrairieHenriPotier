@@ -1,12 +1,16 @@
 package com.groupe3.librairiedehenripotier
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.groupe3.librairiedehenripotier.model.Book
+
 
 class BookListAdapter(private val bookActivity: MainActivity, private var books: List<Book>) : RecyclerView.Adapter<BookListAdapter.BookViewHolder>() {
 
@@ -33,6 +37,14 @@ class BookListAdapter(private val bookActivity: MainActivity, private var books:
 
         holder.titleView.text = title
         holder.priceView.text = price.toString() + "€"
+
+
+        // loading album cover using Glide library
+        Glide.with(bookActivity)
+            .load(cover)
+           // .apply( RequestOptions().override(, 100))
+            .into(holder.imgView)
+
 
         holder.itemView.setOnClickListener { bookActivity.onMovieItemClick(position) }
     }
