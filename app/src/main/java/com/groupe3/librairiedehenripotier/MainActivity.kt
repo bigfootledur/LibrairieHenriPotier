@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), View {
 
         GlobalScope.launch(Dispatchers.Main) {
 
-            val listBooks = HenriPotierData.listBooks()
+            val listBooks = presenter.getBookList()
 
             val offers = HenriPotierData.commercialOffers(listBooks.map { book -> book.isbn })
 
