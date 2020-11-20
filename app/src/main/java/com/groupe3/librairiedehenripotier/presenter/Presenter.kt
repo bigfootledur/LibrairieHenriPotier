@@ -4,5 +4,5 @@ import com.groupe3.librairiedehenripotier.model.Book
 
 
 interface Presenter {
-    fun getBookList():List<Book>
+    suspend fun getBookList():List<Book>
 }

@@ -12,19 +12,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class BookListView() : AppCompatActivity(), View {
 
-   // private val presenter : BookListPresenter =
+   //private val presenter : BookListPresenter =
     private lateinit var  recycler : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main2)
         this.recycler = findViewById(R.id.recycler_view_books)
     }
 
-    override fun setItems(items: List<Book>) {
+    override fun setDataRecyclerView(items: List<Book>) {
         // init adapter ... ?
         // this.recycler.adapter =
         //items.adapter =
+
+        println(items);
     }
 
 }
