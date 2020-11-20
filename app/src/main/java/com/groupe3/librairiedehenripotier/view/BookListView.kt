@@ -7,10 +7,12 @@ import com.groupe3.librairiedehenripotier.R
 import com.groupe3.librairiedehenripotier.api.HenriPotierAPI
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.BookListPresenter
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class BookListView() : AppCompatActivity(), View {
 
-    private val presenter = BookListPresenter(this, null)
+   // private val presenter : BookListPresenter =
     private lateinit var  recycler : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
