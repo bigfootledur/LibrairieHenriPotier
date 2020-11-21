@@ -2,12 +2,12 @@ package com.groupe3.librairiedehenripotier.presenter
 
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
-import com.groupe3.librairiedehenripotier.view.View
+import com.groupe3.librairiedehenripotier.view.BookListView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class BookDetailsPresenter (private var view: View, private val api: HenriPotierData): Presenter  {
+class BookDetailsPresenter (private var view: BookListView, private val api: HenriPotierData): Presenter  {
     fun onResume() {
         GlobalScope.launch(Dispatchers.Main) {
             val listBooks = api.listBooks()

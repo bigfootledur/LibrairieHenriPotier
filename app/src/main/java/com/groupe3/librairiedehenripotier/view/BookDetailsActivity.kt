@@ -17,7 +17,7 @@ import com.groupe3.librairiedehenripotier.presenter.BookDetailsPresenter
 import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
 
-class BookDetailsActivity  : AppCompatActivity(), View {
+class BookDetailsActivity  : AppCompatActivity(), BookListView {
 
     private lateinit var  presenter : BookDetailsPresenter
     private lateinit var book : Book
@@ -39,8 +39,8 @@ class BookDetailsActivity  : AppCompatActivity(), View {
     }
     override fun setDataView(items: List<Book>) {
         if(items.isNotEmpty()){
-            if(bookId.toInt()!=-1 && bookId.toInt() < items.size){
-                book = items.get(bookId.toInt())
+            if(bookId !=-1 && bookId < items.size){
+                book = items.get(bookId)
 
                 // get
                 val titleView: TextView = this.findViewById(R.id.book_detail_title)
@@ -50,7 +50,7 @@ class BookDetailsActivity  : AppCompatActivity(), View {
 
                 // set
                 titleView.text = book.title
-                priceView.text = book.price.toString()
+                priceView.text = getString(R.string.montant_prix, book.price.toString())
                 synopsis.text = book.synopsis[0]
 
                 // loading album cover using Glide library

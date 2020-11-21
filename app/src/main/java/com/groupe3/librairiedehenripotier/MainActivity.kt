@@ -13,9 +13,9 @@ import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
 import com.groupe3.librairiedehenripotier.view.BookDetailsActivity
 import com.groupe3.librairiedehenripotier.view.PanierActivity
-import com.groupe3.librairiedehenripotier.view.View
+import com.groupe3.librairiedehenripotier.view.BookListView
 
-class MainActivity : AppCompatActivity(), View {
+class MainActivity : AppCompatActivity(), BookListView {
 
     private lateinit var  recycler : RecyclerView
     private lateinit var  presenter : BookListPresenter
@@ -28,39 +28,28 @@ class MainActivity : AppCompatActivity(), View {
         setNavigationListener()
 
         this.recycler = findViewById(R.id.recycler_view_books)
-
         this.listBooks = ArrayList()
-
-        this.recyclerAdapter = BookListAdapter(this, listBooks);
-
+        this.recyclerAdapter = BookListAdapter(this, listBooks)
         recyclerAdapter.notifyDataSetChanged()
-
-        recycler.adapter = recyclerAdapter;
-
+        recycler.adapter = recyclerAdapter
         this.recycler.layoutManager = LinearLayoutManager(this)
 
         this.presenter = BookListPresenter(this, HenriPotierData)
         this.presenter.onResume()
-
     }
 
-     override fun setDataView(books: List<Book>) {
-
-         listBooks.addAll(books)
+     override fun setDataView(items: List<Book>) {
+         listBooks.addAll(items)
          recyclerAdapter.notifyDataSetChanged()
-
-
     }
 
     fun onMovieItemClick(position: Int) {
         if (position == -1) {
             return
         }
-        println("HELLO")
 
         val detailIntent = Intent(this, BookDetailsActivity::class.java)
-        detailIntent.putExtra(KEY_MOVIE_ID.toString(), position)
-        println("===="+ KEY_MOVIE_ID)
+        detailIntent.putExtra(KEY_MOVIE_ID, position)
         startActivity(detailIntent)
     }
 

@@ -2,6 +2,6 @@ package com.groupe3.librairiedehenripotier.view
 
 import com.groupe3.librairiedehenripotier.model.Book
 
-interface View {
+interface BookListView {
     fun setDataView(items: List<Book>):Unit
 }
