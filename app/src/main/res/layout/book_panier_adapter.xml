@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    style="@style/BookPanier"
+    style="@style/BookPanier.Layout"
     >
     <TextView
         android:id="@+id/panier_book_title"

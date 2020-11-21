@@ -7,7 +7,7 @@
     app:shapeAppearanceOverlay="@style/MatCard.ShapesAppearanceOverlay"
     style="@style/MatCard">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/BooksList.CardLayout"
@@ -15,6 +15,7 @@
 
         <ImageView
             android:id="@+id/book_image_item"
+            android:contentDescription="@string/book_description_detail_image"
             android:layout_width="@dimen/adapter_item_width_image"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher"

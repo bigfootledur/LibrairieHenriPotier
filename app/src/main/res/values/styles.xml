@@ -110,7 +110,8 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginRight">20sp</item>
     </style>
-    <style name="BookPanier">
+    <style name="BookPanier" />
+    <style name="BookPanier.Layout">
         <item name="android:layout_marginBottom">20sp</item>
         <item name="android:background">@color/dark_grey</item>
         <item name="android:padding">15sp</item>
