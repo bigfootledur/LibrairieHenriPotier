@@ -7,4 +7,12 @@
     <string name="book_details_title">Title</string>
     <string name="book_detail_purchase">Buy</string>
     <string name="book_details_price">0€</string>
+    <string name="panier">Panier</string>
+    <string name="nombre_livres">Livres achetés : %1$s</string>
+    <string name="prix_panier">Prix</string>
+    <string name="montant_prix">%1$s €</string>
+    <string name="reduction">Réduction</string>
+    <string name="montant_reduction">%1$s €</string>
+    <string name="bouton_payer">Payer</string>
+    <string name="text_button">Payer.exe a bien été téléchargé</string>
 </resources>

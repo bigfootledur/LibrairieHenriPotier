@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PanierTitre">
+        <item name="android:textSize">35sp</item>
+        <item name="android:layout_marginTop">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="NombreLivres">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="ElementTitre">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="Prix">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">50sp</item>
+    </style>
+    <style name="Reduction">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
