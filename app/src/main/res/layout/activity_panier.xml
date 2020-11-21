@@ -28,7 +28,9 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/panier_titre">
+        app:layout_constraintTop_toBottomOf="@id/panier_titre"
+        style="@style/Panier.Card"
+        >
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_panier_list_books"
         android:layout_width="match_parent"

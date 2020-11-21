@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="20sp"
     android:orientation="vertical"
+    android:background="@color/dark_grey"
+    android:padding="15sp"
     >
     <TextView
         android:id="@+id/panier_book_title"
@@ -12,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="5sp"
         android:textSize="18sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:text="@string/book_title_item"
         />
     <LinearLayout
@@ -36,14 +38,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="@string/quantity_book"
             />
         <Button
             android:id="@+id/delete_button"
-            android:layout_width="wrap_content"
+            android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50sp"
+            android:layout_marginStart="100sp"
             android:text="@string/bouton_supprimer"
             >
 

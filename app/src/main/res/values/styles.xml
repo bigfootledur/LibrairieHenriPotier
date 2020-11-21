@@ -75,11 +75,10 @@
         <item name="android:padding">20dp</item>
         <item name="android:textSize">@dimen/book_detail_synopsis_size</item>
     </style>
-
-
-
-
-
+    <style name="Panier"/>
+    <style name="Panier.Card">
+        <item name="android:background">@color/dark_grey</item>
+    </style>
     <style name="PanierTitre">
         <item name="android:textSize">35sp</item>
         <item name="android:textStyle">bold</item>
