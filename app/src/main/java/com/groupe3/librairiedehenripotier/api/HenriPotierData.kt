@@ -23,8 +23,6 @@ object HenriPotierData {
     suspend fun commercialOffers(bookIds: List<String>): List<CommercialOffer> {
         val bookIdsStr = bookIds.joinToString(",")
 
-        print(bookIdsStr)
-
         return service.commercialOffer(bookIdsStr).offers
     }
 }

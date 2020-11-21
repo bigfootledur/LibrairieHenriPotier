@@ -1,5 +1,5 @@
 package com.groupe3.librairiedehenripotier.utils
 
-object Contants {
+object Constants {
     const val KEY_MOVIE_ID = "-1"
 }

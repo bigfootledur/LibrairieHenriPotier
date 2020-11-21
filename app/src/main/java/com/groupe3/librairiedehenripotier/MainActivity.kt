@@ -10,8 +10,9 @@ import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.BookListPresenter
 import com.groupe3.librairiedehenripotier.presenter.PanierContent
-import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
+import com.groupe3.librairiedehenripotier.utils.Constants.KEY_MOVIE_ID
 import com.groupe3.librairiedehenripotier.view.BookDetailsActivity
+import com.groupe3.librairiedehenripotier.view.BookListAdapter
 import com.groupe3.librairiedehenripotier.view.PanierActivity
 import com.groupe3.librairiedehenripotier.view.BookListView
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity(), BookListView {
         this.recycler.layoutManager = LinearLayoutManager(this)
 
         this.presenter = BookListPresenter(this, HenriPotierData)
-        this.presenter.onResume()
+        this.presenter.getListBooks()
     }
 
      override fun setDataView(items: List<Book>) {

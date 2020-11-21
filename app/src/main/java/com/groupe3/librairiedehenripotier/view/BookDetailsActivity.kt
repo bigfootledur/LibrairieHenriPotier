@@ -13,13 +13,13 @@ import com.groupe3.librairiedehenripotier.MainActivity
 import com.groupe3.librairiedehenripotier.R
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
-import com.groupe3.librairiedehenripotier.presenter.BookDetailsPresenter
+import com.groupe3.librairiedehenripotier.presenter.BookListPresenter
 import com.groupe3.librairiedehenripotier.presenter.PanierContent
-import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
+import com.groupe3.librairiedehenripotier.utils.Constants.KEY_MOVIE_ID
 
 class BookDetailsActivity  : AppCompatActivity(), BookListView {
 
-    private lateinit var  presenter : BookDetailsPresenter
+    private lateinit var  presenter : BookListPresenter
     private lateinit var book : Book
     private var bookId : Int = 2
 
@@ -34,8 +34,8 @@ class BookDetailsActivity  : AppCompatActivity(), BookListView {
         val mIntent = intent
         bookId = mIntent.getIntExtra(KEY_MOVIE_ID, 2)
 
-        presenter = BookDetailsPresenter(this, HenriPotierData)
-        presenter.onResume()
+        presenter = BookListPresenter(this, HenriPotierData)
+        presenter.getListBooks()
     }
     override fun setDataView(items: List<Book>) {
         if(items.isNotEmpty()){
