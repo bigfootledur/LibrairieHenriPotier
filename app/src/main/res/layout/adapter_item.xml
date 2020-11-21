@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:shapeAppearanceOverlay="@style/BooksListCard.ShapesAppearanceOverlay"
-    style="@style/BooksListCard">
+    app:shapeAppearanceOverlay="@style/MatCard.ShapesAppearanceOverlay"
+    style="@style/MatCard">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/BooksListCardLayout"
+        style="@style/BooksList.CardLayout"
         >
 
         <ImageView
@@ -18,19 +18,19 @@
             android:layout_width="@dimen/adapter_item_width_image"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_launcher"
-            style="@style/BooksListCardImage"/>
+            style="@style/BooksList.CardImage"/>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/BooksListCardTextContent"
+            style="@style/BooksList.CardTextContent"
             >
 
             <TextView
                 android:id="@+id/book_title_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BooksListCardTitle"
+                style="@style/BooksList.CardTitle"
                 />
 
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/book_title_item"
-                style="@style/BooksListCardPrice"
+                style="@style/BooksList.CardPrice"
                  />
         </RelativeLayout>
     </LinearLayout>
