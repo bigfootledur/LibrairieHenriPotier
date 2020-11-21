@@ -5,11 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.BookListPresenter
 import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
 import com.groupe3.librairiedehenripotier.view.BookDetailsActivity
+import com.groupe3.librairiedehenripotier.view.PanierActivity
 import com.groupe3.librairiedehenripotier.view.View
 
 class MainActivity : AppCompatActivity(), View {
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity(), View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.library_activity)
+        setNavigationListener()
 
         this.recycler = findViewById(R.id.recycler_view_books)
 
@@ -58,7 +61,18 @@ class MainActivity : AppCompatActivity(), View {
         detailIntent.putExtra(KEY_MOVIE_ID.toString(), position)
         println("===="+ KEY_MOVIE_ID)
         startActivity(detailIntent)
+    }
 
-
+    private fun setNavigationListener() {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.bottom_navigation_menu2 -> {
+                    val panierIntent = Intent(this, PanierActivity::class.java)
+                    startActivity(panierIntent)
+                }
+            }
+            true
+        }
     }
 }

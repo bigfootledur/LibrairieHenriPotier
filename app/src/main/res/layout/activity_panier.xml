@@ -7,25 +7,28 @@
     tools:context=".view.PanierActivity">
 
     <TextView
+        android:id="@+id/panier_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/panier_card"
         android:text="@string/panier"
         style="@style/PanierTitre" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/panier_card"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         app:contentPaddingRight="40dp"
         app:contentPaddingLeft="40dp"
-        app:contentPaddingTop="35dp"
+        app:contentPaddingTop="20dp"
         app:contentPaddingBottom="35dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/panier_titre"
+        app:layout_constraintBottom_toTopOf="@id/textButton"
         app:cardElevation="10dp"
         >
         <LinearLayout
@@ -77,6 +80,17 @@
         android:layout_height="wrap_content"
         android:text="@string/bouton_payer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

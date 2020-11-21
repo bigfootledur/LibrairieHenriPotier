@@ -1,13 +1,16 @@
 package com.groupe3.librairiedehenripotier.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.groupe3.librairiedehenripotier.MainActivity
 import com.groupe3.librairiedehenripotier.R
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
-import com.groupe3.librairiedehenripotier.model.Book
+import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.presenter.PanierPresenter
 
 class PanierActivity : AppCompatActivity(), PanierView {
@@ -17,16 +20,13 @@ class PanierActivity : AppCompatActivity(), PanierView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panier)
-
+        setNavigationListener()
         val openButton = findViewById<Button>(R.id.textButton)
         openButton.setOnClickListener { showPayerToast() }
 
-        val bookIds = listOf<Book>(
-            Book("c8fabf68-8374-48fe-a7ea-a00ccd07afff",
-                "oij", 10.0F, "zef", listOf<String>("zef")))
-        presenter.getReducedPriceAndPromotion(bookIds)
-
-        setLivreAchetes(bookIds.size.toString())
+        val books = PanierContent.getBooks()
+        presenter.getReducedPriceAndPromotion(books)
+        setLivreAchetes(books.size.toString())
     }
 
     override fun showPayerToast() {
@@ -46,5 +46,19 @@ class PanierActivity : AppCompatActivity(), PanierView {
     override fun setLivreAchetes(number: String) {
         val livreAchetes = findViewById<TextView>(R.id.nombre_livres)
         livreAchetes.text = getString(R.string.nombre_livres, number)
+    }
+
+    private fun setNavigationListener() {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.selectedItemId = R.id.bottom_navigation_menu2
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.bottom_navigation_menu1 -> {
+                    val panierIntent = Intent(this, MainActivity::class.java)
+                    startActivity(panierIntent)
+                }
+            }
+            true
+        }
     }
 }

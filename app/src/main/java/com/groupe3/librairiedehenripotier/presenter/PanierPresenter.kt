@@ -10,19 +10,27 @@ import kotlinx.coroutines.launch
 
 class PanierPresenter (private var view: PanierView, private val api: HenriPotierData)  {
     fun getReducedPriceAndPromotion(books: List<Book>) {
-        GlobalScope.launch(Dispatchers.Main) {
-            val bookIds = books.map{ book -> book.isbn }
-            val commercialOffers = api.commercialOffers(bookIds)
-
-            val (bestOffer, price) = OfferCalculator.getBestOfferWithPrice(books, commercialOffers)
-            var promotion = 0F
-            if (bestOffer != null) {
-                promotion = OfferCalculator.getPriceWithOffer(books, bestOffer)
-            }
-
+        if(books.isEmpty()) {
             view.apply{
-                setMontantPrix(price)
-                setMontantPromotion(promotion)
+                setMontantPrix(0f)
+                setMontantPromotion(0f)
+            }
+        }
+        else {
+            GlobalScope.launch(Dispatchers.Main) {
+                val bookIds = books.map { book -> book.isbn }
+                val commercialOffers = api.commercialOffers(bookIds)
+
+                val (bestOffer, price) = OfferCalculator.getBestOfferWithPrice(books, commercialOffers)
+                var promotion = 0F
+                if (bestOffer != null) {
+                    promotion = OfferCalculator.getPriceWithOffer(books, bestOffer)
+                }
+
+                view.apply {
+                    setMontantPrix(price)
+                    setMontantPromotion(promotion)
+                }
             }
         }
     }

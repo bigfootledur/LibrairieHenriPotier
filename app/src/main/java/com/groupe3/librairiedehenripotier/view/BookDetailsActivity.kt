@@ -1,14 +1,20 @@
 package com.groupe3.librairiedehenripotier.view
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.groupe3.librairiedehenripotier.MainActivity
 import com.groupe3.librairiedehenripotier.R
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.BookDetailsPresenter
+import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
 
 class BookDetailsActivity  : AppCompatActivity(), View {
@@ -20,6 +26,10 @@ class BookDetailsActivity  : AppCompatActivity(), View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.book_details_activity)
+        setNavigationListener()
+
+        val purchase = findViewById<Button>(R.id.book_detail_button_purchase)
+        purchase.setOnClickListener{ addBookToPanier() }
 
         val mIntent = intent
         bookId = mIntent.getIntExtra(KEY_MOVIE_ID, 2)
@@ -49,6 +59,28 @@ class BookDetailsActivity  : AppCompatActivity(), View {
                     .into(imgView)
             }
         }
+    }
+
+    private fun setNavigationListener() {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.bottom_navigation_menu1 -> {
+                    val panierIntent = Intent(this, MainActivity::class.java)
+                    startActivity(panierIntent)
+                }
+                R.id.bottom_navigation_menu2 -> {
+                    val panierIntent = Intent(this, PanierActivity::class.java)
+                    startActivity(panierIntent)
+                }
+            }
+            true
+        }
+    }
+
+    fun addBookToPanier() {
+        PanierContent.addBook(book)
+        Toast.makeText(this@BookDetailsActivity, this.book.title + " ajouté au panier", Toast.LENGTH_SHORT).show()
     }
 
 }
