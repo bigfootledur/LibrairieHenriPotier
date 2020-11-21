@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+<!--    <style name=""-->
+
+    <style name="MatCard">
+        <item name="android:layout_margin">14dp</item>
+    </style>
+
+    <style name="MatCard.ShapesAppearanceOverlay">
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="BooksList" />
+    <style name="BooksList.CardLayout">
+        <item name="android:layout_margin">@dimen/adapter_item_margin</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/dark_grey</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="BooksList.CardImage">
+        <item name="android:maxWidth">@dimen/adapter_item_max_width_image</item>
+    </style>
+    <style name="BooksList.CardTextContent">
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+    <style name="BooksList.CardTitle">
+        <item name="android:text">@string/book_title_item</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/title_item</item>
+    </style>
+    <style name="BooksList.CardPrice">
+        <item name="android:text">@string/book_price_item</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/price_item</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
+
+
+    <style name="BookDetail"/>
+    <style name="BookDetail.Card" parent="MatCard">
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+
+    </style>
+    <style name="BookDetail.CardLayout">
+        <item name="android:padding">10dp</item>
+        <item name="android:background">@color/dark_grey</item>
+    </style>
+    <style name="BookDetail.BookImage">
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    <style name="BookDetail.BookTitle">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/book_detail_title_size</item>
+    </style>
+    <style name="BookDetail.BookPrice">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/book_detail_title_size</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+    <style name="BookDetail.BookPurchaseButton">
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
+
+    <style name="BookDetail.BookSynopsisCard" >
+        <item name="android:layout_marginTop">20dp</item>
+    </style>
+
+    <style name="BookDetail.BookSynopsis">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">@dimen/book_detail_synopsis_size</item>
+    </style>
+
+
+
+
+
     <style name="PanierTitre">
         <item name="android:textSize">35sp</item>
         <item name="android:textStyle">bold</item>
@@ -22,4 +102,5 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginRight">20sp</item>
     </style>
+
 </resources>
