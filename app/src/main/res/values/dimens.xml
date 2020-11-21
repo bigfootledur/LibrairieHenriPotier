@@ -7,8 +7,9 @@
     <dimen name="fab_margin">3dp</dimen>
     <dimen name="adapter_item_max_width_image">150dp</dimen>
     <dimen name="adapter_item_width_image">150dp</dimen>
-    <dimen name="title_item">30dp</dimen>
-    <dimen name="price_item">20dp</dimen>
+    <dimen name="title_item">30sp</dimen>
+    <dimen name="price_item">20sp</dimen>
+    <dimen name="number_item">20sp</dimen>
     <dimen name="book_detail_max_width_image">200dp</dimen>
     <dimen name="book_detail_width_image">200dp</dimen>
     <dimen name="book_detail_title_size">40sp</dimen>

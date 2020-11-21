@@ -9,7 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class PanierPresenter (private var view: PanierView, private val api: HenriPotierData)  {
-    fun getReducedPriceAndPromotion(books: List<Book>) {
+    fun getPriceAndPromotion(books: List<Book>) {
         if(books.isEmpty()) {
             view.apply{
                 setMontantPrix(0f)
@@ -22,10 +22,7 @@ class PanierPresenter (private var view: PanierView, private val api: HenriPotie
                 val commercialOffers = api.commercialOffers(bookIds)
 
                 val (bestOffer, price) = OfferCalculator.getBestOfferWithPrice(books, commercialOffers)
-                var promotion = 0F
-                if (bestOffer != null) {
-                    promotion = OfferCalculator.getPriceWithOffer(books, bestOffer)
-                }
+                val promotion = bestOffer?.value ?: 0f
 
                 view.apply {
                     setMontantPrix(price)

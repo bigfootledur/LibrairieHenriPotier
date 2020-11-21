@@ -16,4 +16,6 @@
     <string name="montant_reduction">%1$s €</string>
     <string name="bouton_payer">Payer</string>
     <string name="text_button">Payer.exe a bien été téléchargé</string>
+    <string name="quantity_book">x %1$s</string>
+    <string name="bouton_supprimer">X</string>
 </resources>

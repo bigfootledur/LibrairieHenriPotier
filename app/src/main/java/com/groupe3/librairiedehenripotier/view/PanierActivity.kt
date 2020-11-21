@@ -6,27 +6,35 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.groupe3.librairiedehenripotier.MainActivity
 import com.groupe3.librairiedehenripotier.R
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
+import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.presenter.PanierPresenter
 
 class PanierActivity : AppCompatActivity(), PanierView {
 
     private val presenter = PanierPresenter(this, HenriPotierData)
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panier)
         setNavigationListener()
+
+        val booksWithQuantity = PanierContent.getBooksWithQuantity()
+        recyclerView = findViewById(R.id.recycler_panier_list_books)
+        recyclerView.adapter = PanierBooksAdapter(this, booksWithQuantity)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
         val openButton = findViewById<Button>(R.id.textButton)
         openButton.setOnClickListener { showPayerToast() }
 
-        val books = PanierContent.getBooks()
-        presenter.getReducedPriceAndPromotion(books)
-        setLivreAchetes(books.size.toString())
+        showPanier()
     }
 
     override fun showPayerToast() {
@@ -43,9 +51,22 @@ class PanierActivity : AppCompatActivity(), PanierView {
         montantReduction.text = getString(R.string.montant_reduction, promotion.toString())
     }
 
-    override fun setLivreAchetes(number: String) {
-        val livreAchetes = findViewById<TextView>(R.id.nombre_livres)
-        livreAchetes.text = getString(R.string.nombre_livres, number)
+    override fun removeBook(book: Book) {
+        PanierContent.removeBook(book)
+        showPanier()
+        showBadge()
+    }
+
+    private fun showPanier() {
+        val books = PanierContent.getBooks()
+        presenter.getPriceAndPromotion(books)
+    }
+
+    private fun showBadge() {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_menu2)
+        badge.number = PanierContent.getBooks().size
+        badge.isVisible = PanierContent.getBooks().isNotEmpty()
     }
 
     private fun setNavigationListener() {
@@ -61,10 +82,6 @@ class PanierActivity : AppCompatActivity(), PanierView {
             true
         }
 
-        if(PanierContent.getBooks().isNotEmpty()) {
-            val badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_menu2)
-            badge.isVisible = true
-            badge.number = PanierContent.getBooks().size
-        }
+        showBadge()
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20sp"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/panier_book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5sp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="@string/book_title_item"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        >
+        <TextView
+            android:id="@+id/panier_book_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5sp"
+            android:textSize="18sp"
+            android:textColor="@color/red"
+            android:text="@string/montant_prix"
+            />
+
+        <TextView
+            android:id="@+id/panier_book_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:text="@string/quantity_book"
+            />
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50sp"
+            android:text="@string/bouton_supprimer"
+            >
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>
