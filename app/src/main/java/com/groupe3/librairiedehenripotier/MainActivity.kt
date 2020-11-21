@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.groupe3.librairiedehenripotier.api.HenriPotierData
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.presenter.BookListPresenter
+import com.groupe3.librairiedehenripotier.presenter.PanierContent
 import com.groupe3.librairiedehenripotier.utils.Contants.KEY_MOVIE_ID
 import com.groupe3.librairiedehenripotier.view.BookDetailsActivity
 import com.groupe3.librairiedehenripotier.view.PanierActivity
@@ -73,6 +74,12 @@ class MainActivity : AppCompatActivity(), View {
                 }
             }
             true
+        }
+
+        if(PanierContent.getBooks().isNotEmpty()) {
+            val badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_menu2)
+            badge.isVisible = true
+            badge.number = PanierContent.getBooks().size
         }
     }
 }

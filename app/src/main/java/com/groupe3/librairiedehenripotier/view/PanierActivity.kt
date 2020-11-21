@@ -60,5 +60,11 @@ class PanierActivity : AppCompatActivity(), PanierView {
             }
             true
         }
+
+        if(PanierContent.getBooks().isNotEmpty()) {
+            val badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_menu2)
+            badge.isVisible = true
+            badge.number = PanierContent.getBooks().size
+        }
     }
 }

@@ -76,11 +76,24 @@ class BookDetailsActivity  : AppCompatActivity(), View {
             }
             true
         }
+
+        showBadge()
     }
 
-    fun addBookToPanier() {
+    private fun addBookToPanier() {
         PanierContent.addBook(book)
         Toast.makeText(this@BookDetailsActivity, this.book.title + " ajouté au panier", Toast.LENGTH_SHORT).show()
+
+        showBadge()
+    }
+
+    private fun showBadge() {
+        if(PanierContent.getBooks().isNotEmpty()) {
+            val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+            val badge = bottomNavigation.getOrCreateBadge(R.id.bottom_navigation_menu2)
+            badge.isVisible = true
+            badge.number = PanierContent.getBooks().size
+        }
     }
 
 }
