@@ -10,21 +10,15 @@
         android:id="@+id/panier_titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:text="@string/panier"
-        style="@style/PanierTitre" />
+        style="@style/Panier.Titre" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60sp"
-        android:layout_marginBottom="108sp"
-        android:layout_marginStart="10sp"
-        android:layout_marginEnd="10sp"
-        android:elevation="10sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="18sp"
+        style="@style/Panier.Recycler"
         />
     </com.google.android.material.card.MaterialCardView>
     <LinearLayout
@@ -47,31 +42,34 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TextView
-            style="@style/ElementTitre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/prix_panier" />
+            android:text="@string/prix_panier"
+            style="@style/Panier.ElementTitre"
+            />
 
         <TextView
             android:id="@+id/montant_prix"
-            style="@style/Prix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/montant_prix"
-            android:textStyle="bold" />
+            style="@style/Panier.Prix"
+            />
 
         <TextView
-            style="@style/ElementTitre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reduction" />
+            android:text="@string/reduction"
+            style="@style/Panier.ElementTitre"
+            />
 
         <TextView
             android:id="@+id/montant_reduction"
-            style="@style/Reduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/montant_reduction" />
+            android:text="@string/montant_reduction"
+            style="@style/Panier.Reduction"
+            />
 
         <Button
             android:id="@+id/textButton"
@@ -86,7 +84,6 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_menu"
         app:layout_constraintBottom_toBottomOf="parent"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

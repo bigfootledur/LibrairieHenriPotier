@@ -78,28 +78,59 @@
     <style name="Panier"/>
     <style name="Panier.Card">
         <item name="android:background">@color/dark_grey</item>
+        <item name="android:layout_marginTop">60sp</item>
+        <item name="android:layout_marginBottom">108sp</item>
+        <item name="android:layout_marginStart">10sp</item>
+        <item name="android:layout_marginEnd">10sp</item>
+        <item name="android:elevation">10sp</item>
     </style>
-    <style name="PanierTitre">
+    <style name="Panier.Recycler">
+        <item name="android:layout_margin">18sp</item>
+    </style>
+    <style name="Panier.Titre">
         <item name="android:textSize">35sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginTop">5sp</item>
     </style>
-    <style name="ElementTitre">
+    <style name="Panier.ElementTitre">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginRight">5sp</item>
     </style>
-    <style name="Prix">
+    <style name="Panier.Prix">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/red</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginRight">20sp</item>
     </style>
-    <style name="Reduction">
+    <style name="Panier.Reduction">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginRight">20sp</item>
+    </style>
+    <style name="BookPanier">
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name="android:background">@color/dark_grey</item>
+        <item name="android:padding">15sp</item>
+    </style>
+    <style name="BookPanier.Title">
+        <item name="android:layout_marginEnd">5sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="BookPanier.Price">
+        <item name="android:layout_marginEnd">5sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="BookPanier.Quantity">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="BookPanier.DeleteButton">
+        <item name="android:layout_marginStart">100sp</item>
     </style>
 
 </resources>

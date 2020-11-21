@@ -3,19 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20sp"
     android:orientation="vertical"
-    android:background="@color/dark_grey"
-    android:padding="15sp"
+    style="@style/BookPanier"
     >
     <TextView
         android:id="@+id/panier_book_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5sp"
-        android:textSize="18sp"
-        android:textColor="@color/white"
         android:text="@string/book_title_item"
+        style="@style/BookPanier.Title"
         />
     <LinearLayout
         android:layout_width="wrap_content"
@@ -27,26 +23,23 @@
             android:id="@+id/panier_book_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5sp"
-            android:textSize="18sp"
-            android:textColor="@color/red"
             android:text="@string/montant_prix"
+            style="@style/BookPanier.Price"
             />
 
         <TextView
             android:id="@+id/panier_book_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="@color/white"
             android:text="@string/quantity_book"
+            style="@style/BookPanier.Quantity"
             />
         <Button
             android:id="@+id/delete_button"
             android:layout_width="50sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100sp"
             android:text="@string/bouton_supprimer"
+            style="@style/BookPanier.DeleteButton"
             >
 
         </Button>
