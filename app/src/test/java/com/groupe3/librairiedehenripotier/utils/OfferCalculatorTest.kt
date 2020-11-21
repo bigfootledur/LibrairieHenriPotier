@@ -123,7 +123,7 @@ class OfferCalculatorTest(
         }
 
         private fun testBookWithPrice(price: Float): Book {
-            return Book("test", "Test with price $price", price, "Test")
+            return Book("test", "Test with price $price", price, "Test", ArrayList())
         }
     }
 
