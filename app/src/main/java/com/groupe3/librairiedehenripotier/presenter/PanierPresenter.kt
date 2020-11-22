@@ -7,6 +7,7 @@ import com.groupe3.librairiedehenripotier.view.PanierView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.math.round
 
 class PanierPresenter (private var view: PanierView, private val api: HenriPotierData)  {
     fun getPriceAndPromotion(books: List<Book>) {
@@ -21,8 +22,8 @@ class PanierPresenter (private var view: PanierView, private val api: HenriPotie
                 val bookIds = books.map { book -> book.isbn }
                 val commercialOffers = api.commercialOffers(bookIds)
 
-                val (bestOffer, price) = OfferCalculator.getBestOfferWithPrice(books, commercialOffers)
-                val promotion = bestOffer?.value ?: 0f
+                val (_, price) = OfferCalculator.getBestOfferWithPrice(books, commercialOffers)
+                val promotion = computePromotion(books, price)
 
                 view.apply {
                     setMontantPrix(price)
@@ -30,5 +31,13 @@ class PanierPresenter (private var view: PanierView, private val api: HenriPotie
                 }
             }
         }
+    }
+
+    private fun computePromotion(books: List<Book>, loweredPrice: Float): Float {
+        val initialPrice = books.map{book -> book.price}.sum()
+        val promotion = initialPrice - loweredPrice
+
+        // Round to 2 decimals
+        return round(promotion * 100)/100
     }
 }
