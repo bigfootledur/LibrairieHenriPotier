@@ -1,2 +1,2 @@
-include ':app'
+include ':groupe3_masoni_hascoet_omond'
 rootProject.name = "LibrairieDeHenriPotier"

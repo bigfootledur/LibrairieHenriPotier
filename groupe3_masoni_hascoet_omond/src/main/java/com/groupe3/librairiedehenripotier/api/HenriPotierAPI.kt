@@ -1,8 +1,8 @@
-package com.groupe3.librairiedehenripotier.api;
+package com.groupe3.librairiedehenripotier.api
 
 import com.groupe3.librairiedehenripotier.model.Book
 import com.groupe3.librairiedehenripotier.model.OffersListDTO
-import retrofit2.http.GET;
+import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface HenriPotierAPI {
